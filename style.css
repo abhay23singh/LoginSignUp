@@ -1,0 +1,165 @@
+/* General Styles */
+body {
+    background: linear-gradient(to right, #141e30, #243b55), 
+                url('https://source.unsplash.com/1600x900/?technology,abstract');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Login & Signup Container */
+.login-container, .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Login & Signup Box - Glassmorphism */
+.login-box, .signup-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup-box {
+    max-width: 450px;
+}
+
+/* Forgot & Reset Password Container */
+.forgot-container, .reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Forgot & Reset Password Box */
+.forgot-box, .reset-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Form Styles */
+h2 {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    text-align: left;
+    display: block;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 8px #00d4ff;
+    border-color: #00d4ff;
+}
+
+/* Custom Button */
+.btn-custom {
+    background: linear-gradient(to right, #00d4ff, #0072ff);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(to right, #0072ff, #00d4ff);
+    transform: scale(1.05);
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #a2f5ff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.forgot-password:hover {
+    color: #00d4ff;
+    text-decoration: underline;
+}
+
+/* Error Message Styling */
+.error-msg {
+    color: #ff4b5c;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Success Message Styling */
+.success-msg {
+    color: #28a745;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Links Styling */
+.login-box p, .signup-box p {
+    color: #ffffff !important;  
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-box p a, .login-box p a {
+    color: #a2f5ff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.signup-box p a:hover, .login-box p a:hover {
+    color: #00d4ff;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-box, .signup-box, .forgot-box, .reset-box {
+        width: 90%;
+    }
+}
