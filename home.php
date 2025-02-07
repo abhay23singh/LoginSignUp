@@ -1,24 +1,24 @@
 <?php
 session_start();
 
-// Prevent accessing home page without login
+// Prevent accessing home page if not logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Prevent browser caching after logout
-header("Cache-Control: no-cache, no-store, must-revalidate");
+// Prevent caching to ensure session is checked every time
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
-header("Expires: 0");
 
-// Logout logic inside home.php
+// Logout function inside home.php
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    
-    // Prevent back button from accessing the page
-    header("Location: login.php");
+
+    // Redirect with a timestamp to prevent back navigation
+    header("Location: login.php?session_expired=" . time());
     exit();
 }
 
@@ -90,10 +90,16 @@ $lname = $_SESSION['lname'];
     </div>
 
     <script>
-        // Prevent back navigation after logout
-        window.history.pushState(null, "", window.location.href);
+        // Prevent back button from loading cached pages
+        window.onload = function() {
+            if (performance.navigation.type === 2) {
+                location.href = "login.php?session_expired=true";
+            }
+        };
+
+        history.pushState(null, null, location.href);
         window.onpopstate = function () {
-            window.location.replace("login.php");
+            history.go(1);
         };
     </script>
 
